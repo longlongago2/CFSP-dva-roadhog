@@ -1,0 +1,78 @@
+@import "../index.less";
+
+.introduction {
+  max-width: 700px;
+  height: 200px;
+  margin: auto;
+  margin-top: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: lighten(@secondColor, 20%);
+  overflow: hidden;
+  @media (min-width: 1250px) {
+    .introImg {
+      display: block;
+      float: left;
+      width: 200px;
+      height: 200px;
+      background: @secondColor;
+    }
+
+    .introTxt {
+      display: block;
+      float: right;
+      height: 100%;
+      width: 500px;
+      text-align: left;
+      padding: 20px;
+      overflow: hidden;
+      .top {
+        height: 150px;
+        font: 15px/20px Arial, sans-serif;
+        color: @baseColor;
+        text-shadow: 0 0 3px @secondColor;
+        overflow: hidden;
+      }
+      .bottom {
+        font: 12px sans-serif;
+        color: #666666;
+      }
+    }
+  }
+  @media (max-width: 1250px) {
+    .introImg {
+      display: none;
+    }
+
+    .introTxt {
+      display: block;
+      float: right;
+      height: 100%;
+      width: 100%;
+      text-align: left;
+      padding: 20px;
+      overflow: hidden;
+      .top {
+        height: 150px;
+        font: 15px/20px "Microsoft YaHei", Arial, sans-serif;
+        color: @baseColor;
+        text-shadow: 0 0 5px @secondColor;
+        overflow: hidden;
+      }
+      .bottom {
+        a {
+          color: #666666;
+        }
+        a:hover {
+          color: lighten(#666666, 10%);
+        }
+      }
+    }
+  }
+}
+
+.introduction:after {
+  content: '';
+  clear: both;
+}

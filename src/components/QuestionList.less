@@ -1,0 +1,152 @@
+@import "../index.less";
+
+.questions {
+  margin: auto;
+  padding: 10px 20px;
+  position: relative;
+  li {
+    display: block;
+    width: 100%;
+    height: 130px;
+    padding: 5px;
+    overflow: hidden;
+    .questionLeft {
+      height: 100%;
+      width: 10%;
+      float: left;
+      display: block;
+      .leftContent {
+        height: 100%;
+        width: 100%;
+        display: table;
+        .imageInfo {
+          height: 50px;
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          img {
+            width: 50px;
+            height: 50px;
+            border: 0;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 25px;
+          }
+          img:hover {
+            border: 1px solid #ffffff;
+          }
+        }
+      }
+    }
+    .questionMiddle {
+      height: 100%;
+      width: 80%;
+      float: left;
+      display: block;
+      text-align: left;
+      .middleContent {
+        height: 100%;
+        width: 100%;
+        display: table;
+        .info {
+          height: 120px;
+          display: table-cell;
+          vertical-align: middle;
+          em {
+            a {
+              color: #4D4D4D;
+              font: bold 17px Arial, Verdana, "Microsoft YaHei";
+            }
+            a:hover {
+              color: lighten(@baseColor, 10%);
+              text-decoration: underline;
+            }
+            span {
+              color: #D1D1D1;
+              font-size: 10px;
+            }
+            .subjectName {
+              color: @baseColor;
+              font: bold 12px Arial, Verdana, "Microsoft YaHei";
+            }
+            .subjectName:hover {
+              color: lighten(@baseColor, 10%);
+            }
+            display: block;
+            width: 500px;
+            font: bold 15px 'Microsoft YaHei';
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+          .summary {
+            height: 50px;
+            max-width: 650px;
+            padding: 10px 0;
+            font: 14px/20px Arial, Verdana, "Microsoft YaHei";
+            color: #9C9C9C;
+            overflow: hidden;
+            position: relative;
+          }
+          .summary:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            background: -webkit-linear-gradient(left, transparent, #fff 55%);
+            background: -o-linear-gradient(right, transparent, #fff 55%);
+            background: -moz-linear-gradient(right, transparent, #fff 55%);
+            background: linear-gradient(to right, transparent, #fff 55%);
+          }
+          p {
+            padding: 10px 0 0 0;
+            color: darken(#9C9C9C, 10%);
+          }
+        }
+      }
+    }
+    .questionRight {
+      float: right;
+      display: block;
+      text-align: right;
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+  li:not(:first-child) {
+    border-top: 1px solid #EBEBEB;
+  }
+  .alwaysLoading {
+    position: absolute;
+    width: 100%;
+    height: 130px;
+    text-align: center;
+    background: #ffffff;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    padding: 30px 0 0 0;
+    p {
+      margin: 20px 0 0 0;
+    }
+  }
+  .loading {
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .btnLoadingMore {
+    padding: 5px;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+  }
+}
+
+.hidden {
+  display: none;
+}

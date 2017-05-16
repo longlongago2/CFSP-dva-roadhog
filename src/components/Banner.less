@@ -1,0 +1,30 @@
+@textColor: #fff;
+@import "../index.less";
+
+.banner {
+  height: 280px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  .carousel {
+    width: 100%;
+    height: 280px;
+    background: @secondColor;
+    font: bold 15px 'Microsoft YaHei';
+    .carouselImg {
+      text-align: center;
+      height: 280px;
+      li {
+        width: 100%;
+        height: 100%;
+        a {
+          font: 25px/280px 'Microsoft YaHei';
+          color: @textColor;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

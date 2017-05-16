@@ -1,0 +1,41 @@
+@import "../../index.less";
+
+.container {
+  margin: 0;
+  width: 100%;
+  .children {
+    background: @bgColor;
+    text-align: center;
+    @media (min-width: 768px) {
+      .childrenContent {
+        width: 750px;
+        margin: auto;
+        padding: 5px 0;
+      }
+    }
+    @media (min-width: 992px) {
+      .childrenContent {
+        width: 970px;
+        margin: auto;
+        padding: 5px 0;
+      }
+    }
+    @media (min-width: 1200px) {
+      .childrenContent {
+        width: 1180px;
+        margin: auto;
+        padding: 5px 0;
+      }
+    }
+  }
+  .backTopInner {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    background-color: @secondColor;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,68 @@
+@import "../index.less";
+
+.collectContainer {
+  width: 100%;
+  display: inline-block;
+  li {
+    display: block;
+    float: left;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin: 10px 5px;
+    .img {
+      height: 70px;
+      width: 70px;
+      margin: auto;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .text {
+      height: 30px;
+      width: 100px;
+      padding: 0 5px;
+      font: 12px/30px Arial, 'Microsoft YaHei';
+      white-space: nowrap;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+  .loadingMore {
+    background: @secondColor;
+    -webkit-transition: background 500ms;
+    -moz-transition: background 500ms;
+    -o-transition: background 500ms;
+    transition: background 500ms;
+    color: #ffffff;
+    height: 70px;
+    width: 70px;
+    font: 20px/70px sans-serif;
+    margin: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .loadingMore:hover {
+    background: lighten(@secondColor, 10%);
+  }
+}
+
+.collectContainer:after {
+  content: '';
+  clear: both;
+}
+
+.popBody {
+  width: 180px;
+  overflow-x: hidden;
+  p {
+    padding: 5px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,44 @@
+{
+  // todo: .roadhogrc.json 也允许注释，好耶!
+  "entry": "./src/index.js",
+  "disableCSSModules": false,
+  "publicPath": "/",
+  "theme": {
+    // 针对所有的less变量设置，这里主要重设antd的主题
+    "@primary-color": "#108ee9",
+    "@font-size-base": "12px"
+  },
+  "autoprefixer": {
+    "browsers": "last 2 versions"
+  },
+  "proxy": {
+    // HTTP代理，例如：http://localhost:8000/CFSP/user/login -> http://www.example.org(target)/CFSP/user/login
+    "/CFSP": {
+      // 代理地址
+      //"target": "http://www.ezhr.com.cn:10101/",
+      "target": "http://localhost:8000",
+      "changeOrigin": true,
+      // 代理地址重写：重写HTTP请求，删除URL中 /CFSP 部分，例如：http://(target)/user/login
+      "pathRewrite": {
+        "^/CFSP": ""
+      }
+    }
+  },
+  "extraBabelPlugins": [
+    "transform-runtime",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ]
+  ],
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr"
+      ]
+    }
+  }
+}

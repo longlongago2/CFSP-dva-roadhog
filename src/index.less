@@ -1,0 +1,55 @@
+// global color
+@baseColor: #108EE9;
+@secondColor: #60b3f9;
+@thirdColor: #00A2AE;
+@fourthColor: #F56A00;
+@bgColor: #EBEBEB;
+
+:global {
+  html, body, #root {
+    height: 100%;
+  }
+}
+
+// global module title
+.headline {
+  font: bold 13px/25px 'Microsoft YaHei';
+  height: 30px;
+  border-bottom: 2px solid #EBEBEB;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  .left {
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+    height: 30px;
+    padding: 0 5px;
+    border-bottom: 2px solid @baseColor;
+  }
+  .right {
+    display: block;
+    float: right;
+    text-align: right;
+    width: auto;
+  }
+}
+
+.headline:after {
+  content: '';
+  clear: both;
+}
+
+// global module body
+.board {
+  height: auto;
+  background: #ffffff;
+  padding: 10px;
+  margin: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+

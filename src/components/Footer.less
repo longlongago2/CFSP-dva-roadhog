@@ -1,0 +1,37 @@
+footer {
+  background: #373A3C;
+  height: 80px;
+  vertical-align: middle;
+  text-align: center;
+  color: #cccccc;
+  font: 12px/80px 'Candara', 'Microsoft YaHei';
+  overflow: hidden;
+  .left {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 80px;
+  }
+  .right {
+    display: block;
+    float: right;
+    width: 50%;
+    height: 80px;
+    line-height: 80px;
+    img {
+      margin: 0 10px;
+      border-radius: 20px;
+      border: 0;
+      transition: background 1s;
+      vertical-align: middle;
+    }
+    img:hover {
+      background: #ffffff;
+    }
+  }
+}
+
+footer:after {
+  content: '';
+  clear: both;
+}
