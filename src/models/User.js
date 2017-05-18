@@ -1,6 +1,7 @@
 import Cookie from 'js-cookie';
 import { parse, stringify } from 'qs';
 import { message } from 'antd';
+import { encode, decode } from 'base64-min';
 import { login, logout, updateUser, queryBannerImg } from '../services/user';
 
 export default {
@@ -26,12 +27,12 @@ export default {
       // 2、自动登录
       const loginData = Cookie.get('login_form_data');
       if (loginData) {
-        message.success('正在登录...');
+        const userObj = parse(decode(loginData));
         dispatch({
           type: 'login',
           payload: {
-            userName: parse(loginData).userName,
-            passWord: parse(loginData).passWord,
+            userName: userObj.userName,
+            passWord: userObj.passWord,
             remember: false
           }
         });
@@ -67,6 +68,7 @@ export default {
   effects: {
     // select 用于在全局的 models 里取数据(state)，reducer api 只能取本 models 里的 state：https://github.com/dvajs/dva-knowledgemap#select
     * login({ payload }, { call, put }) {
+      const loginCookie = Cookie.get('login_form_data');
       const { data, err } = yield call(login, parse(payload));
       if (data && data.data.status === '20000') {
         yield put({
@@ -75,16 +77,24 @@ export default {
         });
         // 登录成功，记录返回信息到cookie(session)
         Cookie.set('user', stringify(data.data.info));
-        // 登录成功，如果选中自动登录，cookie将存储7天
-        const login = Cookie.get('login_form_data');
-        if (!login) {
+        // 如果是手动登录且选中7天内自动登录，则过期时间7天，通过cookie自动登录不重新计算过期时间
+        if (!loginCookie) {
           const loginDataExpires = payload.remember ? { expires: 7 } : null;
-          Cookie.set('login_form_data', stringify(payload), loginDataExpires);
+          const encryptedCookie = encode(stringify(payload)); // base64编码加密
+          Cookie.set('login_form_data', encryptedCookie, loginDataExpires);
         }
-      } else {
-        // 登录失败，清除cookies
+      } else if (loginCookie) {
+        // 登录失败，切换为用户登出状态
+        yield put({ type: 'logoutSuccess' });
+        // 清除cookies
         Cookie.remove('login_form_data');
         Cookie.remove('user');
+        if (data && data.data.status === '21302') {
+          throw new Error('本地密码错误：您的密码可能已经修改，请重新登录！');
+        } else {
+          throw new Error(err ? `接口报错：${err.message}` : `错误信息：${data.data.info}，错误码：${data.data.status}`);
+        }
+      } else {
         throw new Error(err ? `接口报错：${err.message}` : `错误信息：${data.data.info}，错误码：${data.data.status}`);
       }
     },

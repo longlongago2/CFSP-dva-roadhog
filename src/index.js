@@ -1,4 +1,5 @@
 import dva from 'dva';
+import { hashHistory } from 'dva/router';
 import createLoading from 'dva-loading';
 import undoable from 'redux-undo';
 import { message } from 'antd';
@@ -8,16 +9,19 @@ import 'matchmedia-polyfill/matchMedia.addListener';
 import './index.html';
 import './index.less';
 
+const ERROR_MSG_DURATION = 5; // 报错显示持续时间
+
 // 1. Initialize
 const app = dva({
+  history: hashHistory,
   onReducer(reducer) {
     return (state, action) => {
       const undoOpts = {
         debug: false,
         limit: false,
-        filter: () => true, // Action过滤：includeAction(SOME_ACTION); excludeAction(SOME_ACTION)
+        filter: () => true,   // Action过滤：includeAction(SOME_ACTION); excludeAction(SOME_ACTION)
         initTypes: ['@@redux-undo/INIT'], // history重置：设置执行的时候会重置 history 的 action
-        neverSkipReducer: false, // 是否阻止跨步骤操作 undo/redo
+        neverSkipReducer: false,          // 是否阻止跨步骤操作 undo/redo
       };
       const newState = undoable(reducer, undoOpts)(state, action); // redux-undo
       return {
@@ -27,8 +31,8 @@ const app = dva({
     };
   },
   onError(err) {
-    // 统一处理 effects 和 subscriptions 中的 throw new Error()，这样 reject 的 promise 就都会被捕获到了。
-    message.error(err.message);
+    // 统一处理 effects 和 subscriptions 中的 throw new Error()，这样 reject 的 promise 就都会被捕获到了
+    message.error(err.message, ERROR_MSG_DURATION);
   }
 });
 

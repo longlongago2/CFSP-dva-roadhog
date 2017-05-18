@@ -44,7 +44,7 @@ export default {
           });
           // 3、根据subjectCode查询常见问题列表
           const moduleName = location.pathname.split('/')[ 3 ];
-          if (!moduleName || moduleName == 'questions') {
+          if (!moduleName || moduleName === 'questions') {
             dispatch({
               type: 'queryQuestionBySubjectCode',
               payload: {

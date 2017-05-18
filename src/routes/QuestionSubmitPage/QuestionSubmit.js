@@ -13,7 +13,7 @@ const QuestionSubmit = ({ dispatch, subject, tag }) => {
   function handleImageUpload(file) {
     const fileData = new FormData();
     fileData.append('fileDataFileName', file); // 后台接收的参数名（模拟 form 下 input[type='file'] 的 name）
-    return request('http://192.168.1.49:8080/CFSP/workorders/uploadPicByFile', {
+    return request('http://192.168.1.245:8080/CFSP/workorders/uploadPicByFile', {
       method: 'POST',
       body: fileData
     });
@@ -22,7 +22,7 @@ const QuestionSubmit = ({ dispatch, subject, tag }) => {
   const submitProps = {
     onImageUpload: handleImageUpload, // 上传图片
     onChange: handleRichEditorChange,
-    sniffer: { check: true, url: 'http://192.168.1.49:8080/CFSP/web/checkUrl', param: 'urlStr' } // 网址嗅探
+    sniffer: { check: true, url: 'http://192.168.1.245:8080/CFSP/web/checkUrl', param: 'urlStr' } // 网址嗅探
   };
   return (
     <div>
