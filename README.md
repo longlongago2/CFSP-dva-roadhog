@@ -1,4 +1,4 @@
-# CFSP-dva-roadhog
+# dva-roadhog
 
 运行命令行
 ```
@@ -11,4 +11,8 @@ npm install
 npm start
 
 ```
+
+# roadhog
+
+[中文文档](https://github.com/sorrycc/roadhog/blob/master/README_zh-cn.md)
 
