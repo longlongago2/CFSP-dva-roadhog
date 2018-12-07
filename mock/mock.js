@@ -43,7 +43,7 @@ if (!global.durableData) {
     ],
     'subject|10': [{
       knowledgerepositorycode: '@guid',
-      imgpath: 'http://192.168.1.101/media/images/20170105/@pick(["c9e09ec1-f582-413f-94f4-6c65a5d57ea6.jpg","e0a26b5e-30c6-421b-ad29-bfa93af14375.jpg","2938ae95-9c9b-42d3-a106-cf5882c7afae.jpg","1f20acb1-84cc-4fc3-af6f-5ab48e10a1a6.jpg","dd09a994-f07b-4f4b-892c-7a3065a4d0bd.jpg","be62397f-639d-4391-9f62-c5f397497b92.jpg"])',
+      imgpath: 'http://cfsoft.8866.org:10101/CFSP/media/images/20170105/@pick(["c9e09ec1-f582-413f-94f4-6c65a5d57ea6.jpg","e0a26b5e-30c6-421b-ad29-bfa93af14375.jpg","2938ae95-9c9b-42d3-a106-cf5882c7afae.jpg","1f20acb1-84cc-4fc3-af6f-5ab48e10a1a6.jpg","dd09a994-f07b-4f4b-892c-7a3065a4d0bd.jpg","be62397f-639d-4391-9f62-c5f397497b92.jpg"])',
       knowledgerepositorytype: '1',
       'knowledgerepositoryname|+1': ['工资系列产品', '组织人事系列产品', '档案管理产品', '绩效系列产品', '警辅管理系统', '知识库管理系统', 'PAD信息管理系统', '流程管理系统', '定制系统管理', '苏州公安系统'],
       knowledgerepositorymessage: '@cparagraph',

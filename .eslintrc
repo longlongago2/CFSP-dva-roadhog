@@ -13,7 +13,6 @@
     "react"
   ],
   "rules": {
-    // 规则
     "quotes": 1,
     "spaced-comment": 0,
     "no-unused-vars": 0,
@@ -53,15 +52,14 @@
     "eqeqeq": 1,
     "no-obj-calls": 0,
     "jsx-a11y/no-static-element-interactions": 0,
-    "computed-property-spacing": 0
+    "computed-property-spacing": 0,
+    "linebreak-style":0
   },
   "globals": {
-    // 全局变量
     "api": true,
     "$": true
   },
   "env": {
-    // 环境
     "browser": true,
     "commonjs": true,
     "es6": true,
